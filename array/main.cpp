@@ -2,12 +2,13 @@
 #include <iostream>
 
 int main() {
-    Array array(3);
-    array.print();
-    array.pop_back();
+    int n = 10;
+    Array ar(n);
 
-    for (int i=0; i<3; i++) {
-        std::cout << array[i] << ' ';
-    }
+    ar.print();
+    ar.generate_random(n, 1, 10);
+    ar.print();
+    ar.bubble_sort();
+    ar.print();
     return 0;
 }

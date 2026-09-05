@@ -8,22 +8,35 @@ class Array {
         int size;
         int* nums;
     public:
-        Array();
         Array(int _size);
         Array(const Array& other);
         Array& operator=(const Array& other);
         ~Array();
 
-        void print() const;
+        void generate_random(int _size, int _min, int _max);
+
+        void print();
 
         int get_size() const;
         int& operator[](int id);
         const int& operator[](int id) const;
-        int& at(int id);
         int& back();
 
         void push_back(int num);
         void pop_back();
+
+        void insert_at(int id, int num);
+        void delete_at(int id);
+
+        void bubble_sort();
+
+        void quick_sort_imp(int left, int right);
+        void quick_sort();
+
+        void merge(int left, int mid, int right);
+        void merge_sort_imp(int left, int right);
+        void merge_sort();
+
 };
 
 #endif
