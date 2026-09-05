@@ -21,18 +21,17 @@ class Array {
         int& operator[](int id);
         const int& operator[](int id) const;
         int& back();
+        int get_min() const;
+        int get_max() const;
 
         void push_back(int num);
         void pop_back();
-
         void insert_at(int id, int num);
         void delete_at(int id);
 
         void bubble_sort();
-
         void quick_sort_imp(int left, int right);
         void quick_sort();
-
         void merge(int left, int mid, int right);
         void merge_sort_imp(int left, int right);
         void merge_sort();

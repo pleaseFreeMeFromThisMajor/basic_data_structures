@@ -80,6 +80,20 @@ const int &Array::operator[](int id) const {
 int &Array::back() {
     return nums[size - 1];
 }
+int Array::get_min() const {
+    int _min = nums[0];
+    for (int i=1; i<size; i++) {
+        _min = std::min(_min, nums[i]);
+    }
+    return _min;
+}
+int Array::get_max() const {
+    int _max = nums[0];
+    for (int i=1; i<size; i++) {
+        _max = std::max(_max, nums[i]);
+    }
+    return _max;
+}
 
 void Array::push_back(int num) {
     nums[size] = num;
