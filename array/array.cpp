@@ -145,11 +145,46 @@ void Array::quick_sort() {
 }
 
 void Array::merge(int left, int mid, int right) {
-
+    Array aux(right - left +1);
+    int i = 0;
+    int l = left;
+    int r = mid +1;
+    
+    while (l <= mid && r <= right) {
+        if (nums[l] <= nums[r]) {
+            aux.nums[i] = nums[l];
+            i++;
+            l++;
+        }
+        else {
+            aux.nums[i] = nums[r];
+            i++;
+            r++;
+        }
+    }    
+    while (l <= mid) {
+        aux.nums[i] = nums[l];
+        i++;
+        l++;
+    }
+    while (r <= right) {
+        aux.nums[i] = nums[r];
+        i++;
+        r++;
+    }
+    for (int i=0; i< (right - left +1); i++) {
+        nums[i +left] = aux.nums[i];
+    }
 }
 void Array::merge_sort_imp(int left, int right) {
-
-}
+    if (left >= right) {
+        return;
+    }
+    int mid = left + (right -left)/2;
+    merge_sort_imp(left, mid);
+    merge_sort_imp(mid+1, right);
+    merge(left, mid, right);
+}  
 void Array::merge_sort() {
-
+    merge_sort_imp(0, size-1);
 }
