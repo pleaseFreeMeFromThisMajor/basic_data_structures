@@ -93,12 +93,18 @@ void Array::pop_back() {
 }
 
 void Array::insert_at(int id, int num) {
-    if (id < 0 || id > size)
-    {
-        return;
+    for (int i=size; i>id; i--) {
+        nums[i] = nums[i-1];
     }
+    nums[id] = num;
+    size++;
 }
 void Array::delete_at(int id) {
+    for (int i=id; i< size-1; i++) {
+        nums[i] = nums[i+1];
+    }
+    back() = DELETED;
+    size--;
 }
 
 void Array::bubble_sort() {
