@@ -118,10 +118,30 @@ void Array::bubble_sort() {
 }
 
 void Array::quick_sort_imp(int left, int right) {
-
+    if (left >= right) {
+        return;
+    }
+    int l = left;
+    int r = right;
+    int pivot = nums[l + (r-l)/2];
+    while (l <= r) {
+        while (nums[l] < pivot) {
+            l++;
+        }
+        while (nums[r] > pivot) {
+            r--;
+        }
+        if (l <= r) {
+            std::swap(nums[l], nums[r]);
+            l++;
+            r--;
+        }
+    }
+    quick_sort_imp(left, r);
+    quick_sort_imp(l, right);
 }
 void Array::quick_sort() {
-
+    quick_sort_imp(0, size-1);
 }
 
 void Array::merge(int left, int mid, int right) {

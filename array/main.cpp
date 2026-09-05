@@ -2,19 +2,15 @@
 #include <iostream>
 
 int main() {
-    int n = 10;
+    int n = 30;
     Array ar(n);
-    ar.generate_random(n, 1, 10);
-    
+    ar.generate_random(n, 10, 99);
+
     ar.print();
-    ar.bubble_sort();
+    ar.quick_sort();
     ar.print();
 
-    // test insert and delete
-    ar.insert_at(2, 36);
-    ar.print();
-    ar.delete_at(3);
-    ar.print();
+    
 
     return 0;
 }
